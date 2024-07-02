@@ -1,0 +1,15 @@
+Nidhi has a bad habit of repeating the same word while typing.
+She wants a program that can remove duplicate phrases from paragraphs written by her.
+To help Nidhi write a python program that can connect with a text file and remove repeating words.
+
+Nidhi has a bad habit of repeating the same word while typing.
+She wants a program that can remove duplicate phrases from paragraphs written by her.
+To help Nidhi write a python program that can connect with a text file and remove repeating words.
+
+Nidhi has a bad habit of repeating the same word while typing.
+She wants a program that can remove duplicate phrases from paragraphs written by her.
+To help Nidhi write a python program that can connect with a text file and remove repeating words.
+
+Nidhi has a bad habit of repeating the same word while typing.
+She wants a program that can remove duplicate phrases from paragraphs written by her.
+To help Nidhi write a python program that can connect with a text file and remove repeating words.

@@ -1,0 +1,2 @@
+The name is srikanth and the given weight and height is 60 kg and 165 m and the BMI value is : 0.0022038567493112946
+The name is paul and the given weight and height is 78 kg and 167 m and the BMI value is : 0.0027968016063681022
