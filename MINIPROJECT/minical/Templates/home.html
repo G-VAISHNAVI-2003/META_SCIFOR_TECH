@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini - Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('{% static 'new.jpg' %}'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.2); /* Glassy effect */
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 100%;
+        }
+        .calculator-screen {
+            width: 100%;
+            height: 80px;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: right;
+            padding-right: 20px;
+            padding-left: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.5); /* Glassy effect */
+        }
+        .calculator-keys button {
+            width: 23%; /* Adjusted button width to fit in row */
+            height: 60px;
+            font-size: 1.5em;
+            margin: 1%; /* Adjusted margin */
+            border-radius: 10px; /* Rounded corners */
+        }
+        .equal-sign {
+            height: 130px;
+        }
+        h4 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        .result-screen {
+            width: 100%;
+            height: 60px;
+            font-size: 2em;
+            margin-top: 10px;
+            text-align: right;
+            padding-right: 20px;
+            padding-left: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.5); /* Glassy effect */
+        }
+        .explore-button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .explore-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+        <input type="text" class="calculator-screen form-control" id="expression" readonly>
+        <div class="calculator-keys row no-gutters">
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('1')">1</button></div>
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('2')">2</button></div>
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('3')">3</button></div>
+            <div class="col-3"><button type="button" class="btn btn-danger btn-block" onclick="clearScreen()">C</button></div>
+
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('4')">4</button></div>
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('5')">5</button></div>
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('6')">6</button></div>
+            <div class="col-3"><button type="button" class="btn btn-secondary btn-block" onclick="appendValue('/')">/</button></div>
+
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('7')">7</button></div>
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('8')">8</button></div>
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('9')">9</button></div>
+            <div class="col-3"><button type="button" class="btn btn-secondary btn-block" onclick="appendValue('*')">*</button></div>
+
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('0')">0</button></div>
+            <div class="col-3"><button type="button" class="btn btn-light btn-block" onclick="appendValue('.')">.</button></div>
+            <div class="col-3"><button type="button" class="btn btn-secondary btn-block" onclick="appendValue('-')">-</button></div>
+            <div class="col-3"><button type="button" class="btn btn-secondary btn-block" onclick="appendValue('+')">+</button></div>
+
+            <div class="col-12"><button type="button" class="btn btn-primary btn-block equal-sign" onclick="calculate()">=</button></div>
+        </div>
+        <div class="mt-4">
+            <h4>Result:</h4>
+            <div id="result" class="result-screen"></div>
+        </div>
+        <button class="explore-button" onclick="navigateToBlog()">Explore More About Calculator</button>
+    </div>
+
+    <script>
+        function appendValue(value) {
+            document.getElementById('expression').value += value;
+        }
+
+        function clearScreen() {
+            document.getElementById('expression').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+
+        function calculate() {
+            try {
+                var expression = document.getElementById('expression').value;
+                var result = eval(expression);
+                document.getElementById('result').innerHTML = result;
+            } catch (e) {
+                document.getElementById('result').innerHTML = 'Error';
+            }
+        }
+
+        function navigateToBlog() {
+            window.location.href = "{% url 'blog' %}";
+        }
+    </script>
+</body>
+</html>
